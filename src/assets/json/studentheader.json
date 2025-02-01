@@ -1,0 +1,102 @@
+[
+    {
+        "tittle": "Home",
+        "active_link": "/student/student-dashboard",
+        "route": "/student/student-dashboard",
+        "showAsTab": false,
+        "separateRoute": true,
+        "menu": []
+    },
+    {
+        "tittle": "Enrolled Courses",
+        "active_link": "/student/student-courses",
+        "showAsTab": false,
+        "separateRoute": true,
+        "menu": []
+    },
+    {
+        "tittle": "Wishlist",
+        "active_link": "/student/student-wishlist",
+        "showAsTab": false,
+        "separateRoute": true,
+        "menu": []
+    },
+    {
+        "tittle": "Reviews",
+        "active_link": "/student/student-reviews",
+        "showAsTab": false,
+        "separateRoute": true,
+        "menu": []
+    },
+    {
+        "tittle": "My Quiz Attempts",
+        "active_link": "/student/student-quiz",
+        "showAsTab": false,
+        "separateRoute": true,
+        "menu": []
+    },
+    {
+        "tittle": "Account",
+        "active_link": "account",
+        "showAsTab": false,
+        "separateRoute": false,
+        "menu": [
+            {
+                "menuValue": "Order History",
+                "route": "/student/student-order-history",
+                "active_link": "/student/student-order-history",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            },
+            {
+                "menuValue": "Referrals",
+                "route": "/student/student-referral",
+                "active_link": "/student/student-referral",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            },
+            {
+                "menuValue": "Messages",
+                "route": "/student/student-messages",
+                "active_link": "/student/student-messages",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            },
+            {
+                "menuValue": "Support Ticket",
+                "route": "/student/student-tickets",
+                "active_link": "/student/student-tickets",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            },
+            {
+                "menuValue": "Settings",
+                "route": "/student/student-settings",
+                "active_link": "/student/student-settings",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            }
+        ]
+    },
+    {
+        "tittle": "Extras",
+        "active_link": "extras",
+        "showAsTab": false,
+        "separateRoute": false,
+        "menu": [
+            {
+                "menuValue": "Question & Answer",
+                "route": "/student/student-qa",
+                "active_link": "/student/student-qa",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            }
+        ]
+    }
+]

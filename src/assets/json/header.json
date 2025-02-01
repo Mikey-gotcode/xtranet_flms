@@ -1,0 +1,95 @@
+[
+    {
+        "tittle": "Home",
+        "showAsTab": false,
+        "separateRoute": true,
+        "route": "/home/index-three",
+        "active_link": "/home/index-three"
+    },
+    {
+        "tittle": "Courses",
+        "showAsTab": false,
+        "separateRoute": true,
+        "route": "/course/course-grid",
+        "active_link": "/course/course-grid"
+    },
+    {
+        "tittle": "Categories",
+        "showAsTab": false,
+        "separateRoute": true,
+        "route": "/course/course-grid",
+        "active_link": "/course/course-grid"
+    },
+
+    {
+        "tittle": "Pricing Plan",
+        "showAsTab": false,
+        "separateRoute": true,
+        "route": "/pages/pricing-plan",
+        "active_link": "/course/course-grid"
+    },
+    {
+        "tittle": "Support",
+        "route": "/pages/support",
+        "active_link": "/pages/support",
+        "showAsTab": false,
+        "separateRoute": true
+    },
+    {
+        "tittle": "FAQs",
+        "showAsTab": false,
+        "separateRoute": true,
+        "route": "/pages/faq-index",
+        "active_link": "/course/course-grid"
+    },
+
+
+    {
+        "tittle": "Blog",
+        "active_link": "blog",
+        "showAsTab": false,
+        "separateRoute": false,
+        "menu": [
+            {
+                "menuValue": "Blog List",
+                "route": "/blog/blog-list",
+                "active_link": "/blog/blog-list",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            },
+            {
+                "menuValue": "Blog Grid",
+                "route": "/blog/blog-grid",
+                "active_link": "/blog/blog-grid",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            },
+            {
+                "menuValue": "Blog Masonry",
+                "route": "/blog/blog-masonry",
+                "active_link": "/blog/blog-masonry",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            },
+            {
+                "menuValue": "Blog Modern",
+                "route": "/blog/blog-modern",
+                "active_link": "/blog/blog-modern",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            },
+            {
+                "menuValue": "Blog Details",
+                "route": "/blog/blog-details",
+                "active_link": "/blog/blog-details",
+                "hasSubRoute": false,
+                "showSubRoute": false,
+                "subMenus": []
+            }
+        ]
+    }
+]
