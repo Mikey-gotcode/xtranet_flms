@@ -1,0 +1,41 @@
+[
+    {
+      "name": "Nicole Brown",
+      "image": "@/assets/img/user/user1.jpg",
+      "role": "UX/UI Designer",
+      "rating": 4.5,
+      "courses": 5,
+      "lessons": 12,
+      "duration": "9hr 30min",
+      "students": 270866,
+      "bio": "UI/UX Designer, with 7+ Years Experience. Guarantee of High Quality Work.",
+      "skills": [
+        "Web Design", "UI Design", "UX/UI Design", "Mobile Design", "User Interface Design",
+        "Sketch", "Photoshop", "GUI", "Html", "Css", "Grid Systems", "Typography", "Minimal", 
+        "Template", "English", "Bootstrap", "Responsive Web Design", "Pixel Perfect", 
+        "Graphic Design", "Corporate", "Creative", "Flat", "Luxury"
+      ],
+      "availability": [
+        "Full Time Office Work", "Remote Work", "Freelance", "Contract", "Worldwide"
+      ]
+    },
+    {
+      "name": "John Smith",
+      "image": "@/assets/img/user/user2.jpg",
+      "role": "Frontend Developer",
+      "rating": 4.7,
+      "courses": 8,
+      "lessons": 20,
+      "duration": "15hr",
+      "students": 300000,
+      "bio": "Frontend Developer, 5+ Years Experience in HTML, CSS, and JavaScript.",
+      "skills": [
+        "HTML", "CSS", "JavaScript", "React", "Vue.js", "Node.js", "Git", "Webpack", "ES6", 
+        "SASS", "Responsive Design", "Frontend Optimization"
+      ],
+      "availability": [
+        "Remote Work", "Freelance", "Contract"
+      ]
+    }
+  ]
+  

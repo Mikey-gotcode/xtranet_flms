@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="hidden lg:block">
-            <img src="@/assets/img/slider/home-slider.png" alt="Education illustration" class="w-3/4 h-fit mx-auto" />
+            <img :src="require('@/assets/img/slider/home-slider.png')" alt="Education illustration" class="w-3/4 h-fit mx-auto" />
           </div>
       </div>
       </div>
@@ -42,7 +42,7 @@
         <div class="flex flex-col items-center" data-aos="fade-up">
           <div class="flex items-center space-x-4">
             <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center shadow-md">
-              <img class="w-12 h-12" src="@/assets/img/icon-three/course-01.svg" alt="" />
+              <img class="w-12 h-12" :src="require('@/assets/img/icon-three/course-01.svg')" alt="" />
             </div>
             <div class="text-center">
               <h4 class="text-blue-600 text-2xl font-semibold">
@@ -62,7 +62,7 @@
         <div class="flex flex-col items-center" data-aos="fade-up">
           <div class="flex items-center space-x-4">
             <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center shadow-md">
-              <img class="w-12 h-12" src="@/assets/img/icon-three/course-02.svg" alt="" />
+              <img class="w-12 h-12" :src="require('@/assets/img/icon-three/course-02.svg')" alt="" />
             </div>
             <div class="text-center">
               <h4 class="text-yellow-500 text-2xl font-semibold">
@@ -82,7 +82,7 @@
         <div class="flex flex-col items-center" data-aos="fade-up">
           <div class="flex items-center space-x-4">
             <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center shadow-md">
-              <img class="w-12 h-12" src="@/assets/img/icon-three/course-03.svg" alt="" />
+              <img class="w-12 h-12" :src="require('@/assets/img/icon-three/course-03.svg')" alt="" />
             </div>
             <div class="text-center">
               <h4 class="text-blue-400 text-2xl font-semibold">
@@ -102,7 +102,7 @@
         <div class="flex flex-col items-center" data-aos="fade-up">
           <div class="flex items-center space-x-4">
             <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center shadow-md">
-              <img class="w-12 h-12" src="@/assets/img/icon-three/course-04.svg" alt="" />
+              <img class="w-12 h-12" :src="require('@/assets/img/icon-three/course-04.svg')" alt="" />
             </div>
             <div class="text-center">
               <h4 class="text-green-500 text-2xl font-semibold">
@@ -127,13 +127,13 @@
   <!-- Master skills Career -->
   <section class="relative py-24">
     <div class="absolute top-0 right-0 w-1/4">
-      <img class="w-full h-auto" src="@/assets/img/bg/pattern-01.png" alt="" />
+      <img class="w-full h-auto" :src="require('@/assets/img/bg/pattern-01.png')" alt="" />
     </div>
     <div class="container mx-auto">
       <div class="flex flex-wrap">
         <div class="lg:w-1/2 w-full px-4 mb-8" data-aos="fade-right">
           <div>
-            <img class="w-full h-auto" src="@/assets/img/students/career.png" alt="image-banner" title="image-banner" />
+            <img class="w-full h-auto" :src="require('@/assets/img/students/career.png')" alt="image-banner" title="image-banner" />
           </div>
         </div>
 
@@ -148,11 +148,11 @@
               hands-on content directly helped their careers.
             </p>
           </div>
-          <div class="grid grid-cols-2 gap-8">
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-6 pt-5">
             <div
               v-for="(item, index) in skillsthree"
               :key="index"
-              class="flex items-center space-x-4 mb-6"
+              class="flex items-center space-x-4"
               :data-aos="item.animation"
             >
               <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center shadow-md">
@@ -175,7 +175,7 @@
 <script>
 import AOS from "aos";
 import "aos/dist/aos.css";
-import skillsthree from "@/assets/json/skillsthree.json";
+const skillsthree = require("@/assets/json/skillsthree.json")
 export default {
   data() {
     return {

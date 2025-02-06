@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "instructorName": "Nicole Brown",
+      "instructorRole": "UX/UI Designer",
+      "imageUrl": "@/assets/img/user/user1.jpg",
+      "rating": 4.5,
+      "reviewText": "This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to take the Beginner to Advanced course first. The sound and video quality is of a good standard. Thank you Cristian."
+    },
+    {
+      "id": 2,
+      "instructorName": "John Doe",
+      "instructorRole": "Web Developer",
+      "imageUrl": "@/assets/img/user/user2.jpg",
+      "rating": 4.0,
+      "reviewText": "Great course, loved the step-by-step breakdown. Very informative and easy to follow. I would recommend this to anyone interested in web development."
+    }
+  ]
+  

@@ -47,8 +47,8 @@
       </Carousel>
     </div>
   </section>
-
-  <!-- Courses -->
+<!-- Favourite Course -->
+<!-- Courses -->
   <section class="py-16 bg-white">
     <div class="container mx-auto">
       <div class="flex flex-wrap items-center justify-between mb-8">
@@ -71,10 +71,10 @@
         </div>
       </div>
 
-      <coursestab-content></coursestab-content>
+      <!-- <coursestab-content></coursestab-content> -->
     </div>
   </section>
-
+  <!-- Courses -->
   <!-- Call to Action -->
   <section class="py-16 bg-blue-600 text-white">
     <div class="container mx-auto">
@@ -94,6 +94,7 @@
       </div>
     </div>
   </section>
+    <!-- Call to Action -->
 </template>
 
 <script>

@@ -1,0 +1,95 @@
+{
+    "courseContent": [
+      {
+        "title": "In which areas do you operate?",
+        "lectures": [
+          {
+            "name": "Lecture1.1 Introduction to the User Experience Course",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture1.2 Exercise: Your first design challenge",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture1.3 How to solve the previous exercise",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture1.4 How to solve the previous exercise",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture1.5 How to use text layers effectively",
+            "previewLink": "#",
+            "duration": "02:53"
+          }
+        ]
+      },
+      {
+        "title": "The Brief",
+        "lectures": [
+          {
+            "name": "Lecture2.1 Introduction to the User Experience Course",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture2.2 Exercise: Your first design challenge",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture2.3 How to solve the previous exercise",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture2.4 How to solve the previous exercise",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture2.5 How to use text layers effectively",
+            "previewLink": "#",
+            "duration": "02:53"
+          }
+        ]
+      },
+      {
+        "title": "Wireframing Low Fidelity",
+        "lectures": [
+          {
+            "name": "Lecture3.1 Introduction to the User Experience Course",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture3.2 Exercise: Your first design challenge",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture3.3 How to solve the previous exercise",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture3.4 How to solve the previous exercise",
+            "previewLink": "#",
+            "duration": "02:53"
+          },
+          {
+            "name": "Lecture3.5 How to use text layers effectively",
+            "previewLink": "#",
+            "duration": "02:53"
+          }
+        ]
+      }
+    ]
+  }
+  

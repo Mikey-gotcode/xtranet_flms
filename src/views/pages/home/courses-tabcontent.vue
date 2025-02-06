@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-content">
+  <div class="tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     <!-- All -->
     <div class="tab-pane fade active show" id="alltab" role="tabpanel">
       <div class="all-course">

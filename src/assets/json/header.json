@@ -3,8 +3,8 @@
         "tittle": "Home",
         "showAsTab": false,
         "separateRoute": true,
-        "route": "/home/index-three",
-        "active_link": "/home/index-three"
+        "route": "/home/",
+        "active_link": "/home/"
     },
     {
         "tittle": "Courses",

@@ -1,0 +1,176 @@
+{
+    "courses": [
+      {
+        "id": 3,
+        "courseName": "Mastering Python for Data Science",
+        "courseImage": "@/assets/img/course/course-12.jpg",
+        "price": "$400",
+        "discountedPrice": "$199.00",
+        "instructor": {
+          "name": "John D",
+          "profileImage": "@/assets/img/user/user3.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.8,
+        "totalReviews": 30,
+        "lessons": "20+ Lesson",
+        "duration": "15hr 30min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      },
+      {
+        "id": 4,
+        "courseName": "React Native for Mobile Development",
+        "courseImage": "@/assets/img/course/course-13.jpg",
+        "price": "$350",
+        "discountedPrice": "$199.00",
+        "instructor": {
+          "name": "Emma W",
+          "profileImage": "@/assets/img/user/user4.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.7,
+        "totalReviews": 25,
+        "lessons": "18+ Lesson",
+        "duration": "10hr 45min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      },
+      {
+        "id": 5,
+        "courseName": "Full Stack Web Development Bootcamp",
+        "courseImage": "@/assets/img/course/course-14.jpg",
+        "price": "$550",
+        "discountedPrice": "$299.00",
+        "instructor": {
+          "name": "Michael A",
+          "profileImage": "@/assets/img/user/user5.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.9,
+        "totalReviews": 40,
+        "lessons": "40+ Lesson",
+        "duration": "25hr 0min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      },
+      {
+        "id": 6,
+        "courseName": "Machine Learning for Beginners",
+        "courseImage": "@/assets/img/course/course-15.jpg",
+        "price": "$500",
+        "discountedPrice": "$199.00",
+        "instructor": {
+          "name": "Sophia M",
+          "profileImage": "@/assets/img/user/user6.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.6,
+        "totalReviews": 35,
+        "lessons": "22+ Lesson",
+        "duration": "18hr 0min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      },
+      {
+        "id": 7,
+        "courseName": "Data Science and Analytics with R",
+        "courseImage": "@/assets/img/course/course-16.jpg",
+        "price": "$420",
+        "discountedPrice": "$230.00",
+        "instructor": {
+          "name": "Alex P",
+          "profileImage": "@/assets/img/user/user7.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.7,
+        "totalReviews": 22,
+        "lessons": "15+ Lesson",
+        "duration": "12hr 30min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      },
+      {
+        "id": 8,
+        "courseName": "Introduction to Cybersecurity Essentials",
+        "courseImage": "@/assets/img/course/course-17.jpg",
+        "price": "$450",
+        "discountedPrice": "$199.00",
+        "instructor": {
+          "name": "David S",
+          "profileImage": "@/assets/img/user/user8.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.8,
+        "totalReviews": 50,
+        "lessons": "30+ Lesson",
+        "duration": "20hr 0min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      },
+      {
+        "id": 9,
+        "courseName": "Complete Guide to Digital Marketing",
+        "courseImage": "@/assets/img/course/course-18.jpg",
+        "price": "$350",
+        "discountedPrice": "$150.00",
+        "instructor": {
+          "name": "Isabella G",
+          "profileImage": "@/assets/img/user/user9.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.9,
+        "totalReviews": 28,
+        "lessons": "25+ Lesson",
+        "duration": "18hr 0min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      },
+      {
+        "id": 10,
+        "courseName": "Advanced SQL for Data Analysis",
+        "courseImage": "@/assets/img/course/course-19.jpg",
+        "price": "$300",
+        "discountedPrice": "$149.00",
+        "instructor": {
+          "name": "Brian L",
+          "profileImage": "@/assets/img/user/user10.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.4,
+        "totalReviews": 18,
+        "lessons": "15+ Lesson",
+        "duration": "10hr 30min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      },
+      {
+        "id": 11,
+        "courseName": "React & Redux: Modern Web Development",
+        "courseImage": "@/assets/img/course/course-20.jpg",
+        "price": "$380",
+        "discountedPrice": "$179.00",
+        "instructor": {
+          "name": "Paul J",
+          "profileImage": "@/assets/img/user/user11.jpg",
+          "role": "Instructor"
+        },
+        "rating": 4.7,
+        "totalReviews": 45,
+        "lessons": "20+ Lesson",
+        "duration": "16hr 30min",
+        "checkoutLink": "/pages/checkout",
+        "courseDetailsLink": "/course/course-details",
+        "instructorProfileLink": "/instructor/instructor-profile"
+      }
+    ]
+  }
+  
