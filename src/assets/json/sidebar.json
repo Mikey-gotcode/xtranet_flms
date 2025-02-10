@@ -1,0 +1,26 @@
+[
+    {
+      "title": "Dashboard",
+      "items": [
+        { "label": "Dashboard", "route": "/student/student-dashboard", "icon": "bx bxs-tachometer" },
+        { "label": "My Profile", "route": "/student/student-profile", "icon": "bx bxs-user" },
+        { "label": "Enrolled Courses", "route": "/student/student-courses", "icon": "bx bxs-graduation" },
+        { "label": "Wishlist", "route": "/student/student-wishlist", "icon": "bx bxs-heart" },
+        { "label": "Reviews", "route": "/student/student-reviews", "icon": "bx bxs-star" },
+        { "label": "My Quiz Attempts", "route": "/student/student-quiz", "icon": "bx bxs-shapes" },
+        { "label": "Order History", "route": "/student/student-order-history", "icon": "bx bxs-cart" },
+        { "label": "Question & Answer", "route": "/student/student-qa", "icon": "bx bxs-bookmark-alt" },
+        { "label": "Referrals", "route": "/student/student-referral", "icon": "bx bxs-user-plus" },
+        { "label": "Messages", "route": "/student/student-messages", "icon": "bx bxs-chat" },
+        { "label": "Support Tickets", "route": "/student/student-tickets", "icon": "bx bxs-coupon" }
+      ]
+    },
+    {
+      "title": "Account Settings",
+      "items": [
+        { "label": "Settings", "route": "/student/student-settings", "icon": "bx bxs-cog" },
+        { "label": "Logout", "route": "/home/", "icon": "bx bxs-log-out" }
+      ]
+    }
+  ]
+  

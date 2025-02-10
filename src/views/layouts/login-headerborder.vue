@@ -1,71 +1,119 @@
 <template>
   <!-- Header -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300" :class="{ 'bg-gray-800 text-white': isSticky }">
-    <div class="relative">
-      <nav class="flex items-center justify-between px-6 py-4">
-        <div class="flex items-center">
-          <button @click="toggleSidebar" class="md:hidden p-2">
-            <span class="block w-6 h-0.5 bg-gray-700 mb-1"></span>
-            <span class="block w-6 h-0.5 bg-gray-700 mb-1"></span>
-            <span class="block w-6 h-0.5 bg-gray-700"></span>
-          </button>
-          <router-link to="/home/" class="ml-4">
-            <img src="@/assets/img/logo.svg" class="h-8" alt="Logo" />
-          </router-link>
-        </div>
+  <header :class="$route.meta.headerClass">
+    <div class="fixed top-0 left-0 w-full z-50">
+      <nav
+        class="flex items-center justify-between p-4 transition-all duration-300"
+        :class="[
+          $route.meta.NavbarClass, 
+          { 
+            'bg-transparent': !isSticky, 
+            'bg-white/90 shadow-lg sticky-nav': isSticky 
+          }
+        ]"
+      >
+        <div class="container mx-auto flex items-center justify-between">
+          <div class="flex items-center">
+            <!-- Mobile Button (Only Visible on Small Screens) -->
+            <button
+              id="mobile_btn"
+              @click="toggleSidebar"
+              class="focus:outline-none"
+            >
+              <span class="flex flex-col space-y-1">
+                <span class="w-6 h-1 bg-gray-700"></span>
+                <span class="w-6 h-1 bg-gray-700"></span>
+                <span class="w-6 h-1 bg-gray-700"></span>
+              </span>
+            </button>
 
-        <!-- Main Navigation -->
-        <div class="hidden md:block">
-          <main-nav></main-nav>
-        </div>
+            <!-- Logo -->
+            <router-link to="/" class="ml-4">
+              <img src="@/assets/img/logo.svg" class="h-10" alt="Logo" />
+            </router-link>
+          </div>
 
-        <!-- Sign In / Sign Up -->
-        <div class="hidden md:block">
-          <sign-pages></sign-pages>
+          <!-- Desktop Navigation (Only visible on larger screens) -->
+          <div v-if="isDesktop" class="md:flex items-center space-x-4">
+            <Mainnav class="p-4"/>
+          </div>
+
+          <!-- Sign Pages on Desktop -->
+          <Signpages v-if="isDesktop"/>
         </div>
       </nav>
 
-      <!-- Sidebar Menu (Mobile) -->
-      <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" :class="{ 'hidden': !isSidebarOpen }" @click="closeSidebar"></div>
-      <div class="fixed left-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300" :class="{ 'translate-x-0': isSidebarOpen, '-translate-x-full': !isSidebarOpen }">
-        <div class="flex items-center justify-between p-4 border-b">
-          <router-link to="/home/" class="block">
-            <img src="@/assets/img/logo.svg" class="h-8" alt="Logo" />
-          </router-link>
-          <button @click="closeSidebar" class="p-2 text-gray-600">
-            <i class="fas fa-times"></i>
-          </button>
+      <!-- Mobile Sidebar (Visible when isSidebarOpen is true) -->
+      <div v-if="isMobile" class="fixed inset-0 bg-black bg-opacity-50 z-40" @click="closeSidebar">
+        <div
+          class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform transition-transform duration-300 z-50"
+          :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+        >
+          <div class="p-4 flex items-center justify-between border-b">
+            <router-link to="/" class="w-32">
+              <img src="@/assets/img/logo.svg" class="h-10" alt="Logo" />
+            </router-link>
+            <button @click="closeSidebar" class="focus:outline-none h-6 w-6">
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+          <Mainnav v-if="isMobile" class="p-4"/>
         </div>
-        <main-nav></main-nav>
       </div>
     </div>
   </header>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isSticky: false,
-      isSidebarOpen: false,
-    };
-  },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  beforeUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
-  methods: {
-    handleScroll() {
-      this.isSticky = window.pageYOffset >= 100;
-    },
-    toggleSidebar() {
-      this.isSidebarOpen = !this.isSidebarOpen;
-    },
-    closeSidebar() {
-      this.isSidebarOpen = false;
-    },
-  },
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import Mainnav from "@/components/main-nav.vue";
+import Signpages from "@/components/sign-pages.vue";
+
+const isSticky = ref(false);
+const isSidebarOpen = ref(false);
+const isMobile = ref(window.innerWidth < 768);
+const isDesktop = ref(!isMobile.value);
+
+// Check viewport width for responsiveness
+const checkViewportWidth = () => {
+  isMobile.value = window.innerWidth < 768;
+  isDesktop.value = !isMobile.value;
 };
+
+// Handle scroll for sticky navbar
+const handleScroll = () => {
+  isSticky.value = window.scrollY >= 100;
+};
+
+const toggleSidebar = () => {
+  isSidebarOpen.value = !isSidebarOpen.value;
+};
+
+const closeSidebar = () => {
+  isSidebarOpen.value = false;
+};
+
+// Lifecycle hooks
+onMounted(() => {
+  window.addEventListener("resize", checkViewportWidth);
+  window.addEventListener("scroll", handleScroll);
+  checkViewportWidth();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkViewportWidth);
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
+
+<style scoped>
+/* Sticky Navbar Styles */
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(10px); /* Gives a frosted glass effect */
+  transition: all 0.3s ease-in-out;
+  z-index: 1000; /* Ensures it stays above other elements */
+}
+</style>

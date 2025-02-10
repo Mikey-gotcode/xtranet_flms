@@ -1,7 +1,6 @@
 <template>
   <div class="flex justify-center items-center min-h-screen bg-gray-100">
-    <login-banner></login-banner>
-
+    <LoginBanner/>
     <div class="w-full sm:w-96 bg-white p-8 rounded-lg shadow-lg">
       <!-- Sign Up Form -->
       <div class="text-center mb-6">
@@ -33,7 +32,6 @@
             :class="{ 'border-red-500': errors.email }"
           />
           <div class="text-sm text-red-500 mt-1">{{ errors.email }}</div>
-          <div id="email" class="text-sm text-red-500"></div>
         </div>
 
         <!-- Password -->
@@ -53,7 +51,6 @@
             </span>
           </div>
           <div class="text-sm text-red-500 mt-1">{{ errors.password }}</div>
-          <div id="password" class="text-sm text-red-500"></div>
 
           <!-- Password Strength -->
           <div v-if="password" class="mt-2 flex space-x-2">
@@ -118,102 +115,83 @@
   </div>
 </template>
 
-<script>
-//import { ref } from "vue";
-import { router } from "@/router";
-import * as Yup from "yup";
-import { Field } from "vee-validate";
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+//import * as Yup from 'yup';
+import { Field } from 'vee-validate';
 
-export default {
-  components: {
-    Field,
-  },
-  data() {
-    return {
-      password: "",
-      showPassword: false,
-      validationError: 0,
-      strength: "",
-      errors: {
-        password: "",
-      },
-    };
-  },
-  setup() {
-    const schema = Yup.object().shape({
-      email: Yup.string().required("Email is required").email("Email is invalid"),
-      password: Yup.string()
-        .min(6, "Password must be at least 6 characters")
-        .required("Password is required"),
-    });
+import LoginBanner from '@/components/login-banner.vue'
 
-    const onSubmit = (values) => {
-      let Rawdata = localStorage.getItem("storedData");
-      let Pdata = JSON.parse(Rawdata) || [];
-      const Eresult = Pdata.find(({ email }) => email === values.email);
+const router = useRouter();
+const password = ref('');
+const showPassword = ref(false);
+const validationError = ref(0);
+const strength = ref('');
+const errors = ref({
+  password: '',
+});
 
-      if (Eresult) {
-        document.getElementById("email").innerHTML = "This email already exists";
-      } else {
-        Pdata.push(values);
-        const jsonData = JSON.stringify(Pdata);
-        router.push("/");
-        localStorage.setItem("storedData", jsonData);
-      }
-    };
+const handlePasswordChange = () => {
+  const passwordValue = password.value;
+  const passwordLength = passwordValue.length;
+  const poorPassword = /[a-z]/.test(passwordValue);
+  const weakPassword = /(?=.*?[0-9])/.test(passwordValue);
+  const strongPassword = /(?=.*?[#?!@$%^&*-])/.test(passwordValue);
+  const whitespace = /^\s*$/.test(passwordValue);
 
-    return {
-      schema,
-      onSubmit,
-    };
-  },
-  methods: {
-    handlePasswordChange() {
-      let passwordValue = this.password;
-      let passwordLength = passwordValue.length;
-      let poorPassword = /[a-z]/.test(passwordValue);
-      let weakPassword = /(?=.*?[0-9])/.test(passwordValue);
-      let strongPassword = /(?=.*?[#?!@$%^&*-])/.test(passwordValue);
-      let whitespace = /^\s*$/.test(passwordValue);
-
-      if (passwordValue !== "") {
-        if (whitespace) {
-          this.errors.password = "Whitespaces are not allowed";
-        } else {
-          this.errors.password = "";
-          this.checkPasswordStrength(
-            passwordLength,
-            poorPassword,
-            weakPassword,
-            strongPassword
-          );
-        }
-      } else {
-        this.errors.password = "";
-        this.validationError = 0;
-        this.strength = "";
-      }
-    },
-
-    checkPasswordStrength(passwordLength, poorPassword, weakPassword, strongPassword) {
-      if (passwordLength < 8) {
-        this.validationError = 2;
-        this.strength = "poor";
-      } else if (passwordLength >= 8 && (poorPassword || weakPassword || strongPassword)) {
-        this.validationError = 3;
-        this.strength = "weak";
-      } else if (passwordLength >= 8 && poorPassword && (weakPassword || strongPassword)) {
-        this.validationError = 4;
-        this.strength = "strong";
-      } else if (passwordLength >= 8 && poorPassword && weakPassword && strongPassword) {
-        this.validationError = 5;
-        this.strength = "heavy";
-      }
-    },
-
-    toggleShow() {
-      this.showPassword = !this.showPassword;
-    },
-  },
+  if (passwordValue !== '') {
+    if (whitespace) {
+      errors.value.password = 'Whitespaces are not allowed';
+    } else {
+      errors.value.password = '';
+      checkPasswordStrength(passwordLength, poorPassword, weakPassword, strongPassword);
+    }
+  } else {
+    errors.value.password = '';
+    validationError.value = 0;
+    strength.value = '';
+  }
 };
+
+const checkPasswordStrength = (passwordLength, poorPassword, weakPassword, strongPassword) => {
+  if (passwordLength < 8) {
+    validationError.value = 2;
+    strength.value = 'poor';
+  } else if (passwordLength >= 8 && (poorPassword || weakPassword || strongPassword)) {
+    validationError.value = 3;
+    strength.value = 'weak';
+  } else if (passwordLength >= 8 && poorPassword && (weakPassword || strongPassword)) {
+    validationError.value = 4;
+    strength.value = 'strong';
+  } else if (passwordLength >= 8 && poorPassword && weakPassword && strongPassword) {
+    validationError.value = 5;
+    strength.value = 'heavy';
+  }
+};
+
+const toggleShow = () => {
+  showPassword.value = !showPassword.value;
+};
+
+// const schema = Yup.object().shape({
+//   email: Yup.string().required('Email is required').email('Email is invalid'),
+//   password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+// });
+
+const onSubmit = async (values) => {
+  let Rawdata = localStorage.getItem('storedData');
+  let Pdata = JSON.parse(Rawdata) || [];
+  const Eresult = Pdata.find(({ email }) => email === values.email);
+
+  if (Eresult) {
+    document.getElementById('email').innerHTML = 'This email already exists';
+  } else {
+    Pdata.push(values);
+    const jsonData = JSON.stringify(Pdata);
+    localStorage.setItem('storedData', jsonData);
+    router.push('/');
+  }
+};
+
 </script>

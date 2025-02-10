@@ -33,8 +33,9 @@ import FooterOne from '@/views/layouts/layouts-footer.vue'
         </div>
       </div>
 
-      <!-- Plan Types -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+     <div class="grid grid-cols-2 justify-between gap-4">
+       <!-- Plan Types -->
+       <div class="grid grid-flow-col grid-rows-3 gap-4">
         <div class="plan-box bg-white p-6 rounded-lg shadow-lg text-center">
           <h4 class="text-lg font-semibold text-gray-700">Basic</h4>
           <p class="text-gray-500">For individuals who just need to start with the basic features</p>
@@ -75,6 +76,7 @@ import FooterOne from '@/views/layouts/layouts-footer.vue'
           <a href="javascript:;" class="block mt-6 text-center py-3 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Start For Free</a>
         </div>
       </div>
+     </div>
 
       <!-- Compare our plans -->
       <div class="mt-16">

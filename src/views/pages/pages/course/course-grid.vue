@@ -15,7 +15,7 @@ import FooterOne from '@/views/layouts/layouts-footer.vue'
   <!-- Course -->
   <section class="course-content py-8">
     <div class="container mx-auto px-4">
-      <div class="flex flex-row-reverse -mx-4">
+      <div class="flex flex-row -mx-4">
         
         <!-- Sidebar on the left side of the course grid -->
         <div class="lg:w-3/12 px-4">

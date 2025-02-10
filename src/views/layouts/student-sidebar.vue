@@ -1,159 +1,61 @@
 <template>
-  <!-- sidebar -->
-  <div class="col-xl-3 col-lg-3 theiaStickySidebar">
-    <div class="stickysidebar">
-      <div class="settings-widget dash-profile">
-        <div class="settings-menu">
-          <div class="profile-bg">
-            <div class="profile-img">
-              <router-link to="/student/student-profile"
-                ><img src="@/assets/img/user/user16.jpg" alt="Img"
-              /></router-link>
-            </div>
-          </div>
-          <div class="profile-group">
-            <div class="profile-name text-center">
-              <h4>
-                <router-link to="/student/student-profile"
-                  >Rolands Richard</router-link
-                >
-              </h4>
-              <p>Student</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="settings-widget account-settings">
-        <div class="settings-menu">
-          <h3>Dashboard</h3>
+  <div class="w-full sm:w-1/4 lg:w-1/5">
+    <div class="bg-white shadow-lg rounded-lg p-4">
+     
+      <!-- Sidebar Navigation -->
+      <div v-if="sidebarData.length > 0" class="mt-6">
+        <div v-for="section in sidebarData" :key="section.title">
+          <!-- <h3 class="text-gray-700 font-semibold mb-2">{{ section.title }}</h3> -->
           <ul>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-dashboard') }"
-            >
-              <router-link to="/student/student-dashboard" class="nav-link">
-                <i class="bx bxs-tachometer"></i>Dashboard
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-profile') }"
-            >
-              <router-link to="/student/student-profile" class="nav-link">
-                <i class="bx bxs-user"></i>My Profile
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-courses') }"
-            >
-              <router-link to="/student/student-courses" class="nav-link">
-                <i class="bx bxs-graduation"></i>Enrolled Courses
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-wishlist') }"
-            >
-              <router-link to="/student/student-wishlist" class="nav-link">
-                <i class="bx bxs-heart"></i>Wishlist
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-reviews') }"
-            >
-              <router-link to="/student/student-reviews" class="nav-link">
-                <i class="bx bxs-star"></i>Reviews
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{
-                active:
-                  isActive('/student/student-quiz') ||
-                  isActive('/student/student-quiz-details'),
-              }"
-            >
-              <router-link to="/student/student-quiz" class="nav-link">
-                <i class="bx bxs-shapes"></i>My Quiz Attempts
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-order-history') }"
-            >
-              <router-link to="/student/student-order-history" class="nav-link">
-                <i class="bx bxs-cart"></i>Order History
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-qa') }"
-            >
-              <router-link to="/student/student-qa" class="nav-link">
-                <i class="bx bxs-bookmark-alt"></i>Question & Answer
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-referral') }"
-            >
-              <router-link to="/student/student-referral" class="nav-link">
-                <i class="bx bxs-user-plus"></i>Referrals
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-messages') }"
-            >
-              <router-link to="/student/student-messages" class="nav-link">
-                <i class="bx bxs-chat"></i>Messages
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-tickets') }"
-            >
-              <router-link to="/student/student-tickets" class="nav-link">
-                <i class="bx bxs-coupon"></i>Support Tickets
-              </router-link>
-            </li>
-          </ul>
-          <h3>Account Settings</h3>
-          <ul>
-            <li
-              class="nav-item"
-              :class="{ active: isActive('/student/student-settings') }"
-            >
-              <router-link to="/student/student-settings" class="nav-link">
-                <i class="bx bxs-cog"></i>Settings
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/home/" class="nav-link">
-                <i class="bx bxs-log-out"></i>Logout
-              </router-link>
-            </li>
+                  <li v-for="item in section.items" :key="item.route"
+          :class="{ 'bg-blue-500 text-white': isActive(item.route) }"
+          class="p-2 rounded-md transition hover:bg-blue-100 hover:text-black">
+        <router-link v-if="item.route" :to="item.route" class="flex items-center space-x-2 text-gray-700">
+          <i :class="item.icon"></i>
+          <span>{{ item.label }}</span>
+        </router-link>
+      </li>
+
           </ul>
         </div>
       </div>
+
+      <div v-else class="text-center text-gray-500 mt-6">
+        No navigation data available.
+      </div>
+
     </div>
   </div>
-  <!-- /sidebar -->
 </template>
+
 <script>
+import sidebarData from '@/assets/json/sidebar.json';
+
 export default {
   data() {
     return {
-      activeClass: "active",
-      Available: ["I am Available Now", "Not Available"],
+      sidebarData: sidebarData || [], // Ensure it's always an array
     };
   },
   methods: {
-    isActive(paths) {
-      return paths.includes(this.$route.path);
+    isActive(path) {
+      return this.$route.path === path;
     },
   },
+  mounted() {
+    console.log('Sidebar Data:', this.sidebarData);
+    console.log('Current Route:', this.$route.path);
+  }
 };
 </script>
+
+<style scoped>
+/* Optional: Ensuring the sidebar isn't hidden */
+.hidden { display: block !important; }
+
+ul, li, .router-link {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+</style>

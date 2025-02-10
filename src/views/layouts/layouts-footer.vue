@@ -1,8 +1,13 @@
 <template>
   <!-- Footer -->
   <footer class="footer">
-    <footer-top></footer-top>
-    <footer-bottom></footer-bottom>
+   <FooterTop/>
+    <FooterBottom/>
   </footer>
   <!-- /Footer -->
 </template>
+
+<script setup>
+import FooterTop from '@/components/footer-top.vue'
+import FooterBottom from '@/components/footer-bottom.vue'
+</script>
