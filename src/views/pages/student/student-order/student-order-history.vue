@@ -1,111 +1,90 @@
 <template>
-  <student-header></student-header>
-  <student-breadcrumb :title="title" :text="text" :text1="text1" />
+  <Student_Header />
+  <Student_Breadcrumb :title="title" :text="text" :text1="text1" />
   <div class="page-content">
-    <div class="container">
-      <div class="row">
-        <!-- sidebar -->
-        <student-sidebar></student-sidebar>
-        <!-- /Sidebar -->
-
-        <!-- Student Order History -->
-        <div class="col-xl-9 col-lg-9">
-          <div class="settings-widget card-details">
-            <div class="settings-menu p-0">
-              <div class="profile-heading">
-                <h3>Order History</h3>
-              </div>
-              <div class="checkout-form">
-                <!-- Order Tabs -->
-                <div class="wishlist-tab order-tab">
-                  <ul class="nav">
-                    <li class="nav-item">
-                      <a
-                        href="javascript:void(0);"
-                        class="active"
-                        data-bs-toggle="tab"
-                        data-bs-target="#today"
-                        >Today</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a
-                        href="javascript:void(0);"
-                        data-bs-toggle="tab"
-                        data-bs-target="#month"
-                        >Monthly</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a
-                        href="javascript:void(0);"
-                        data-bs-toggle="tab"
-                        data-bs-target="#year"
-                        >Yearly</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <!-- /Order Tabs -->
-
-                <!-- Tab Content -->
-                <div class="tab-content">
-                  <!-- Today -->
-                  <today-history></today-history>
-                  <!-- /Today -->
-
-                  <!-- Month -->
-                  <div class="tab-pane fade" id="month">
-                    <month-history></month-history>
-                  </div>
-                  <!-- /Month -->
-
-                  <!-- Yearly -->
-                  <div class="tab-pane fade" id="year">
-                    <year-history></year-history>
-                  </div>
-                  <!-- /Yearly -->
-                </div>
-                <!-- /Tab Content -->
-              </div>
-            </div>
-          </div>
-
-          <div class="dash-pagination">
-            <div class="row align-items-center">
-              <div class="col-6">
-                <p>Page 1 of 2</p>
-              </div>
-              <div class="col-6">
-                <ul class="pagination">
-                  <li class="active">
-                    <a href="#">1</a>
-                  </li>
-                  <li>
-                    <a href="#">2</a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="bx bx-chevron-right"></i></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <div class="container mx-auto px-4 w-full">
+      <div class="flex flex-row lg:flex-row gap-16">
+        <!-- Sidebar (Left Panel) -->
+        <div class="w-9/12 lg:w-1/4">
+          <Studentsidebar />
         </div>
-        <!-- /Student Order History -->
+
+      <!-- Student Order History -->
+  <div class="col-span-9">
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <div class="border-b pb-4">
+        <h3 class="text-xl font-semibold">Order History</h3>
+      </div>
+      <div class="mt-4">
+        <!-- Tab Navigation -->
+        <div>
+              <ul class="flex border-b">
+                <li 
+                  v-for="tab in tabs" 
+                  :key="tab.id"
+                  @click="selectedTab = tab.id"
+                  class="mr-4 hover:cursor-pointer py-2 px-4 font-semibold transition-colors duration-300"
+                  :class="selectedTab === tab.id ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'"
+                >
+                  {{ tab.label }}
+                </li>
+              </ul>
+            </div>
+
+        <!-- Tab Content -->
+        <div class="mt-6">
+          <Today_History v-if="selectedTab === 'today'" :orders="todayOrders" />
+          <Month_History v-if="selectedTab === 'month'" :orders="monthOrders" />
+          <Year_History v-if="selectedTab === 'year'" :orders="yearOrders" />
+        </div>
+        <!-- /Tab Content -->
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-between items-center mt-6">
+      <p>Page 1 of 2</p>
+      <div class="flex space-x-2">
+        <button class="px-3 py-1 border rounded-md bg-blue-500 text-white">1</button>
+        <button class="px-3 py-1 border rounded-md">2</button>
+        <button class="px-3 py-1 border rounded-md">
+          <i class="bx bx-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    <!-- /Pagination -->
+  </div>
+  <!-- /Student Order History -->
       </div>
     </div>
   </div>
-  <layouts1></layouts1>
+  <FooterOne />
 </template>
-<script>
-export default {
-  data() {
-    return {
-      title: "Order History",
-      text: "Home",
-      text1: "Order History",
-    };
-  },
-};
+<script setup>
+import { ref } from 'vue';
+import Student_Header from '@/views/layouts/student-header.vue';
+import Student_Breadcrumb from '@/components/breadcrumb/student-breadcrumb.vue';
+import Studentsidebar from '@/views/layouts/student-sidebar.vue';
+import FooterOne from '@/views/layouts/layouts-footer.vue';
+
+import Today_History from '@/views/pages/student/student-order/today-history.vue'
+import Month_History from '@/views/pages/student/student-order/month-history.vue'
+import Year_History from '@/views/pages/student/student-order/year-history.vue'
+
+
+const selectedTab = ref('today'); // Default active tab
+
+
+const tabs = ref([
+  { id: 'today', label: 'Todays Orders (0)' },
+  { id: 'month', label: 'Monthly Orders (0)' },
+  { id: 'year', label: 'Year Orders (0)' }
+]);
+
+// Define props for breadcrumb titles
+defineProps({
+  title: String,
+  text: String,
+  text1: String
+});
 </script>

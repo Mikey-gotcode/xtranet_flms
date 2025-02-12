@@ -1,42 +1,59 @@
 <template>
-  <div class="table-responsive custom-table">
-    <table class="table table-nowrap mb-0">
-      <thead>
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-gray-200 bg-white text-left text-sm">
+      <thead class="bg-gray-100">
         <tr>
-          <th>Ticket ID</th>
-          <th>Date</th>
-          <th>Subject</th>
-          <th>Priority</th>
-          <th>Category</th>
-          <th>Status</th>
+          <th class="border border-gray-300 px-4 py-2">Ticket ID</th>
+          <th class="border border-gray-300 px-4 py-2">Date</th>
+          <th class="border border-gray-300 px-4 py-2">Subject</th>
+          <th class="border border-gray-300 px-4 py-2">Priority</th>
+          <th class="border border-gray-300 px-4 py-2">Category</th>
+          <th class="border border-gray-300 px-4 py-2">Status</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Ticket#002</td>
-          <td>March 18, 2024</td>
-          <td>I have a problem</td>
-          <td>
-            <span class="resut-badge badge-light-danger">High</span>
+        <tr v-for="ticket in tickets" :key="ticket.id" class="border-b hover:bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2">{{ ticket.id }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ ticket.date }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ ticket.subject }}</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <span :class="priorityClass(ticket.priority)" class="px-2 py-1 rounded text-white text-sm">
+              {{ ticket.priority }}
+            </span>
           </td>
-          <td>Language Issues</td>
-          <td>
-            <span class="status-badge badge-soft-warning">Inprogress</span>
-          </td>
-        </tr>
-        <tr>
-          <td>Ticket#006</td>
-          <td>April 28, 2024</td>
-          <td>When will start the order</td>
-          <td>
-            <span class="resut-badge badge-light-danger">High</span>
-          </td>
-          <td>Demo Problem</td>
-          <td>
-            <span class="status-badge badge-soft-warning">Inprogress</span>
+          <td class="border border-gray-300 px-4 py-2">{{ ticket.category }}</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <span :class="statusClass(ticket.status)" class="px-2 py-1 rounded text-white text-sm">
+              {{ ticket.status }}
+            </span>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+const tickets = ref([
+  { id: "Ticket#002", date: "March 18, 2024", subject: "I have a problem", priority: "High", category: "Language Issues", status: "Inprogress" },
+  { id: "Ticket#006", date: "April 28, 2024", subject: "When will start the order", priority: "High", category: "Demo Problem", status: "Inprogress" },
+]);
+
+const priorityClass = (priority) => {
+  return {
+    Low: "bg-green-500",
+    Medium: "bg-yellow-500",
+    High: "bg-red-500",
+  }[priority] || "bg-gray-500";
+};
+
+const statusClass = (status) => {
+  return {
+    Opened: "bg-green-500",
+    Inprogress: "bg-yellow-500",
+    Closed: "bg-red-500",
+  }[status] || "bg-gray-500";
+};
+</script>

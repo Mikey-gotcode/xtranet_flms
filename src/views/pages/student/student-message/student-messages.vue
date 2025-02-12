@@ -1,169 +1,125 @@
 <template>
-  <div class="chat-page main-chat-blk">
+  <div class="chat-page bg-gray-100 min-h-screen">
     <div class="main-wrapper chat-wrapper">
-      <student-header></student-header>
-      <student-breadcrumb :title="title" :text="text" :text1="text1" />
+      <Student_Header />
+      <Student_Breadcrumb :title="title" :text="text" :text1="text1" />
+
       <div class="page-content chat-page-wrapper">
-        <div class="container">
-          <div class="row">
-            <!-- sidebar -->
-            <student-sidebar></student-sidebar>
+        <div class="container mx-auto px-4 w-full">
+          <div class="flex flex-row h-full gap-4">
+            <!-- Sidebar -->
+            <div class="w-auto lg:w-1/5 flex-shrink-0">
+              <Studentsidebar />
+            </div>
             <!-- /Sidebar -->
 
             <!-- Student Profile -->
-            <div class="col-xl-9 col-lg-9 theiaStickySidebar">
+            <div class="flex-grow">
               <div class="stickysidebar">
-                <div class="settings-widget card-details mb-0">
-                  <div class="settings-menu p-0">
-                    <div class="profile-heading">
-                      <h3>Message</h3>
+                <div class="settings-widget card-details">
+                  <div class="settings-menu">
+                    <div class="profile-heading pb-6">
+                      <h3 class="text-xl font-semibold">Message</h3>
                     </div>
                     <div class="checkout-form">
-                      <!-- sidebar group -->
+                      <!-- Sidebar group -->
                       <div class="content">
-                        <div class="sidebar-group left-sidebar chat_sidebar">
+                        <div class="flex flex-row lg:flex-row gap-4 h-full">
                           <!-- Chats sidebar -->
-
-                          <div
-                            id="chats"
-                            class="left-sidebar-wrap sidebar active slimscroll"
-                          >
-                            <perfect-scrollbar
-                              class="scroll-area"
-                              :settings="settings"
-                              @ps-scroll-y="scrollHanle"
-                            >
-                              <div class="slimscroll">
+                          <div class="w-1/4 min-w-[250px] bg-white rounded-lg shadow p-4 flex-shrink-0">
+                            <perfect-scrollbar class="scroll-area h-full" :settings="settings" @ps-scroll-y="scrollHandle">
+                              <div>
                                 <!-- Left Chat Title -->
-                                <div
-                                  class="left-chat-title all-chats d-flex justify-content-between align-items-center"
-                                >
-                                  <div class="select-group-chat">
-                                    <div class="dropdown">
-                                      <a href="javascript:void(0);">
-                                        All Chats
-                                      </a>
-                                    </div>
+                                <div class="flex justify-between items-center mb-4">
+                                  <div>
+                                    <a href="javascript:void(0);" class="text-gray-700 font-medium">
+                                      All Chats
+                                    </a>
                                   </div>
-                                  <div class="add-section">
-                                    <ul>
-                                      <li>
-                                        <a
-                                          href="javascript:void(0);"
-                                          class="user-chat-search-btn"
-                                          ><i class="feather-search"></i
-                                        ></a>
-                                      </li>
-                                    </ul>
-                                    <!-- Chat Search -->
-                                    <div class="user-chat-search">
-                                      <form>
-                                        <span class="form-control-feedback"
-                                          ><i class="feather-search"></i
-                                        ></span>
-                                        <input
-                                          type="text"
-                                          name="chat-search"
-                                          placeholder="Search"
-                                          class="form-control"
-                                        />
-                                        <div class="user-close-btn-chat">
-                                          <i class="feather-x"></i>
-                                        </div>
-                                      </form>
-                                    </div>
-                                    <!-- /Chat Search -->
+                                  <div class="flex items-center space-x-2">
+                                    <button class="text-gray-600">
+                                      <i class="feather-search"></i>
+                                    </button>
                                   </div>
                                 </div>
                                 <!-- /Left Chat Title -->
 
                                 <!-- Top Online Contacts -->
-                                <top-online></top-online>
+                                <Top_Online />
                                 <!-- /Top Online Contacts -->
 
-                                <div
-                                  class="sidebar-div chat-body"
-                                  id="chatsidebar"
-                                >
+                                <div class="chat-body">
                                   <!-- Left Chat Title -->
-                                  <div
-                                    class="d-flex justify-content-between align-items-center ps-0 pe-0"
-                                  >
-                                    <div class="fav-title pin-chat">
-                                      <h6>Pinned Chat</h6>
-                                    </div>
+                                  <div class="flex justify-between items-center">
+                                    <h6 class="text-gray-700 font-medium">Pinned Chat</h6>
                                   </div>
-                                  <!-- /Left Chat Title -->
+                                  <Pinned_Chat />
 
-                                  <pinned-chat></pinned-chat>
                                   <!-- Left Chat Title -->
-                                  <div
-                                    class="d-flex justify-content-between align-items-center ps-0 pe-0"
-                                  >
-                                    <div class="fav-title pin-chat">
-                                      <h6>Recent Chat</h6>
-                                    </div>
+                                  <div class="flex justify-between items-center">
+                                    <h6 class="text-gray-700 font-medium">Recent Chat</h6>
                                   </div>
-                                  <!-- /Left Chat Title -->
-                                  <recent-chat></recent-chat>
+                                  <Recent_Chat />
                                 </div>
                               </div>
                             </perfect-scrollbar>
                           </div>
                           <!-- / Chats sidebar -->
-                        </div>
-                        <!-- /Sidebar group -->
 
-                        <!-- Chat -->
-                        <div class="chat chat-messages" id="middle">
-                          <div class="h-100">
-                            <studentchat-header></studentchat-header>
-                            <div class="chat-body chat-page-group slimscroll">
-                              <perfect-scrollbar
-                                class="scroll-area-one"
-                                :settings="settings"
-                                @ps-scroll-y="scrollHanle"
-                              >
-                                <chat-message></chat-message>
+                          <!-- Chat -->
+                          <div class="flex-grow bg-white rounded-lg shadow flex flex-col">
+                            <StudentChat_Header />
+
+                            <!-- Chat Body -->
+                            <div class="flex-grow h-full overflow-auto p-4">
+                              <perfect-scrollbar class="scroll-area-one h-full max-w-full " :settings="settings">
+                                <Chat_Message  :messages="chatMessages" />
                               </perfect-scrollbar>
                             </div>
+
+                            <Chat_Footer class="p-4 border-t flex items-center space-x-3"/>
                           </div>
-                          <chat-footer></chat-footer>
+                          <!-- /Chat -->
                         </div>
-                        <!-- /Chat -->
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Student Profile -->
+            <!-- /Student Profile -->
           </div>
         </div>
       </div>
-      <layouts1></layouts1>
+      <FooterOne />
     </div>
   </div>
 </template>
-<script>
+
+<script setup>
 import { PerfectScrollbar } from "vue3-perfect-scrollbar";
 import "vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css";
-export default {
-  components: {
-    PerfectScrollbar,
-  },
-  data() {
-    return {
-      title: "Messages",
-      text: "Home",
-      text1: "Messages",
-      settings: {
-        suppressScrollX: true,
-      },
-    };
-  },
-  methods: {
-    scrollHanle() {},
-  },
-};
+import { ref } from "vue";
+
+import Student_Header from "@/views/layouts/student-header.vue";
+import Student_Breadcrumb from "@/components/breadcrumb/student-breadcrumb.vue";
+import Studentsidebar from "@/views/layouts/student-sidebar.vue";
+import FooterOne from "@/views/layouts/layouts-footer.vue";
+
+import Chat_Message from "@/views/pages/student/student-message/chat-message.vue";
+import Pinned_Chat from "@/views/pages/student/student-message/pinned-chat.vue";
+import Recent_Chat from "@/views/pages/student/student-message/recent-chat.vue";
+import Top_Online from "@/views/pages/student/student-message/top-online.vue";
+import Chat_Footer from "@/views/pages/student/student-message/chat-footer.vue";
+import StudentChat_Header from "@/views/pages/student/student-message/chat-header.vue";
+
+const title = ref("Messages");
+const text = ref("Home");
+const text1 = ref("Messages");
+
+const settings = ref({
+  suppressScrollX: true,
+});
+
+const scrollHandle = () => {};
 </script>

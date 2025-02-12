@@ -1,0 +1,63 @@
+[
+    {
+      "date": "March 12, 2024 05:40 PM",
+      "student": "studentdemo",
+      "questions": 2,
+      "totalMarks": 2,
+      "correct": 1,
+      "incorrect": 1,
+      "earnedMarks": "1(50%)",
+      "result": "Fail"
+    },
+    {
+      "date": "March 05, 2024 04:15 PM",
+      "student": "studentdemo",
+      "questions": 3,
+      "totalMarks": 3,
+      "correct": 2,
+      "incorrect": 1,
+      "earnedMarks": "2(67%)",
+      "result": "Fail"
+    },
+    {
+      "date": "February 27, 2024 03:20 PM",
+      "student": "studentdemo",
+      "questions": 5,
+      "totalMarks": 5,
+      "correct": 2,
+      "incorrect": 3,
+      "earnedMarks": "2(40%)",
+      "result": "Fail"
+    },
+    {
+      "date": "February 16, 2024 02:40 PM",
+      "student": "studentdemo",
+      "questions": 3,
+      "totalMarks": 3,
+      "correct": 3,
+      "incorrect": 0,
+      "earnedMarks": "3(100%)",
+      "result": "Pass"
+    },
+    {
+      "date": "January 19, 2024 11:00 AM",
+      "student": "studentdemo",
+      "questions": 3,
+      "totalMarks": 3,
+      "correct": 0,
+      "incorrect": 3,
+      "earnedMarks": "0(0%)",
+      "result": "Fail"
+    },
+    {
+      "date": "January 08, 2024 09:30 AM",
+      "student": "studentdemo",
+      "questions": 3,
+      "totalMarks": 3,
+      "correct": 1,
+      "incorrect": 2,
+      "earnedMarks": "1(33%)",
+      "result": "Fail"
+    }
+  ]
+  

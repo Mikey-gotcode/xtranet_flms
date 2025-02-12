@@ -1,132 +1,113 @@
 <template>
- <student-header></student-header>
-  <student-breadcrumb :title="title" :text="text" :text1="text1" />
-  <div class="page-content">
-    <div class="container">
-      <div class="row">
+  <Student_Header />
+  <Student_Breadcrumb :title="title" :text="text" :text1="text1" />
+  <div class="page-content py-10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-row h-full">
         <!-- sidebar -->
-        <student-sidebar></student-sidebar>
+        <div class="w-9/12 lg:w-1/4">
+          <Studentsidebar />
+        </div>
         <!-- /Sidebar -->
 
-        <!-- Student Referral -->
-        <div class="col-xl-9 col-lg-9">
-          <div class="settings-widget card-details">
-            <div class="settings-menu p-0">
-              <div class="profile-heading">
-                <h3>Referrals</h3>
-              </div>
-              <div class="checkout-form pb-0">
-                <div class="row">
-                  <div class="col-xl-3 col-sm-6">
-                    <div class="card refer-card">
-                      <div class="card-body">
-                        <h6>Net Earnings</h6>
-                        <h3>$12,000</h3>
-                        <p>Earning this month</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-sm-6">
-                    <div class="card refer-card">
-                      <div class="card-body">
-                        <h6>Balance</h6>
-                        <h3>$15,000</h3>
-                        <p>In the Wallet</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-sm-6">
-                    <div class="card refer-card">
-                      <div class="card-body">
-                        <h6>Avg Deal Size</h6>
-                        <h3>$2,000</h3>
-                        <p>Earning this month</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-3 col-sm-6">
-                    <div class="card refer-card">
-                      <div class="card-body">
-                        <h6>No of Referrals</h6>
-                        <h3>10</h3>
-                        <p>In this month</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xl-6 d-flex">
-                    <div class="card link-box flex-fill">
-                      <div class="card-body">
-                        <h5>Your Referral Link</h5>
-                        <p>
-                          You can earn easily money by copy and share the below link to
-                          your friends
-                        </p>
-                        <div class="input-block">
-                          <input
-                            type="text"
-                            class="form-control"
-                            value="https://dreamslmscourse.com/reffer/?refid=345re667877k9"
-                          />
-                        </div>
-                        <a href="javascript:void(0);">Copy link</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-6 d-flex">
-                    <div class="card link-box flex-fill">
-                      <div class="card-body">
-                        <h5>Withdraw Money</h5>
-                        <ul>
-                          <li>Withdraw money securily to your bank account.</li>
-                          <li>Commision is $25 per transaction under $10,000</li>
-                        </ul>
-                        <a href="javascript:void(0);">Withdraw Money</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <referral-table></referral-table>
-
-          <div class="dash-pagination">
-            <div class="row align-items-center">
-              <div class="col-6">
-                <p>Page 1 of 2</p>
-              </div>
-              <div class="col-6">
-                <ul class="pagination">
-                  <li class="active">
-                    <a href="#">1</a>
-                  </li>
-                  <li>
-                    <a href="#">2</a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="bx bx-chevron-right"></i></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+   <!-- Student Referral -->
+<div class="w-full lg:w-3/4">
+  <div class="bg-white shadow-md rounded-lg p-6">
+    <div class="border-b pb-4">
+      <h3 class="text-xl font-semibold">Referrals</h3>
+    </div>
+    <div class="py-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gray-100 p-4 rounded-lg shadow">
+          <h6 class="text-gray-600 text-sm">Net Earnings</h6>
+          <h3 class="text-2xl font-bold">$12,000</h3>
+          <p class="text-gray-500 text-sm">Earning this month</p>
         </div>
-        <!-- /Student Referral -->
+        <div class="bg-gray-100 p-4 rounded-lg shadow">
+          <h6 class="text-gray-600 text-sm">Balance</h6>
+          <h3 class="text-2xl font-bold">$15,000</h3>
+          <p class="text-gray-500 text-sm">In the Wallet</p>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-lg shadow">
+          <h6 class="text-gray-600 text-sm">Avg Deal Size</h6>
+          <h3 class="text-2xl font-bold">$2,000</h3>
+          <p class="text-gray-500 text-sm">Earning this month</p>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-lg shadow">
+          <h6 class="text-gray-600 text-sm">No of Referrals</h6>
+          <h3 class="text-2xl font-bold">10</h3>
+          <p class="text-gray-500 text-sm">In this month</p>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="bg-white shadow-md rounded-lg p-6">
+          <h5 class="text-lg font-semibold">Your Referral Link</h5>
+          <p class="text-gray-500 text-sm">
+            You can earn easily money by copying and sharing the below link with your friends.
+          </p>
+          <div class="mt-4">
+            <input 
+              type="text" 
+              class="w-full p-2 border border-gray-300 rounded-md text-gray-700"
+              value="https://dreamslmscourse.com/reffer/?refid=345re667877k9" 
+              readonly
+            />
+          </div>
+          <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Copy link
+          </button>
+        </div>
+
+        <div class="bg-white shadow-md rounded-lg p-6">
+          <h5 class="text-lg font-semibold">Withdraw Money</h5>
+          <ul class="list-disc pl-5 text-gray-500 text-sm space-y-2">
+            <li>Withdraw money securely to your bank account.</li>
+            <li>Commission is $25 per transaction under $10,000.</li>
+          </ul>
+          <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Withdraw Money
+          </button>
+        </div>
       </div>
     </div>
   </div>
+
+  <Referral_Table />
+
+  <!-- Pagination -->
+  <div class="flex justify-between items-center mt-6">
+    <p class="text-gray-500 text-sm">Page 1 of 2</p>
+    <div class="flex space-x-2">
+      <a href="#" class="px-3 py-1 bg-blue-500 text-white rounded">1</a>
+      <a href="#" class="px-3 py-1 border border-gray-300 rounded">2</a>
+      <a href="#" class="px-3 py-1 border border-gray-300 rounded">
+        <i class="bx bx-chevron-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- /Student Referral -->
+
+      </div>
+    </div>
+  </div>
+  <FooterOne />
 </template>
-<script>
-export default {
-  data() {
-    return {
-      title: "Referrals",
-      text: "Home",
-      text1: "Referrals",
-    };
-  },
-};
+<script setup>
+//import { ref } from 'vue';
+
+import Student_Header from '@/views/layouts/student-header.vue';
+import Student_Breadcrumb from '@/components/breadcrumb/student-breadcrumb.vue';
+import Studentsidebar from '@/views/layouts/student-sidebar.vue';
+import FooterOne from '@/views/layouts/layouts-footer.vue';
+
+import Referral_Table from '@/views/pages/student/student-referral/referral-table.vue'
+
+const title = 'Referrals';
+const text = 'Home';
+const text1 = 'Dashboard';
+
+
+
 </script>

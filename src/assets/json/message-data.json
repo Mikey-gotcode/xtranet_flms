@@ -1,0 +1,44 @@
+[
+    {
+      "sender": "Mark Villiams",
+      "avatar": "/assets/img/user/user12.jpg",
+      "time": "8:16 PM",
+      "content": "Hello @Alex, Thank you for the beautiful web design ahead schedule.",
+      "type": "text",
+      "isSender": false
+    },
+    {
+      "sender": "Alex Smith",
+      "avatar": "/assets/img/user/user2.jpg",
+      "time": "8:17 PM",
+      "content": "Thank you, Mark! Looking forward to the next project.",
+      "type": "text",
+      "isSender": true
+    },
+    {
+      "sender": "Mark Villiams",
+      "avatar": "/assets/img/user/user12.jpg",
+      "time": "8:18 PM",
+      "content": "https://www.youtube.com/watch?v=GCmL3mS0Psk",
+      "type": "link",
+      "isSender": false
+    },
+    {
+      "sender": "Alex Smith",
+      "avatar": "/assets/img/user/user2.jpg",
+      "time": "8:19 PM",
+      "content": "/assets/img/chat-img-01.jpg",
+      "type": "image",
+      "isSender": true
+    },
+    {
+      "sender": "Mark Villiams",
+      "avatar": "/assets/img/user/user12.jpg",
+      "time": "8:20 PM",
+      "content": "/assets/audio/sample-voice.mp3",
+      "type": "voice",
+      "duration": "0:05",
+      "isSender": false
+    }
+  ]
+  

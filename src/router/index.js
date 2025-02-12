@@ -19,6 +19,11 @@ import Student_Courses from '@/views/pages/student/student-courses/student-cours
 import Student_Wishlist from '@/views/pages/student/student-wishlist/student-wishlist.vue'
 import Student_Reviews from '@/views/pages/student/student-reviews.vue'
 import Student_Quiz from '@/views/pages/student/student-quiz.vue'
+import Student_Order_History from '@/views/pages/student/student-order/student-order-history.vue'
+import Student_Qa from '@/views/pages/student/student-qa.vue'
+import Student_Referral from '@/views/pages/student/student-referral/student-referral.vue'
+import Student_Messages from '@/views/pages/student/student-message/student-messages.vue'
+import Student_Tickets from '@/views/pages/student/student-tickets/student-tickets.vue'
 
 
 
@@ -74,12 +79,12 @@ const routes = [
         { path: "student-wishlist", component: Student_Wishlist },
         { path: "student-reviews", component: Student_Reviews },
         { path: "student-quiz", component: Student_Quiz },
-        // { path: "student-quiz-details", component: Student_Quiz_Details },
-        // { path: "student-order-history", component: Student_Order_History },
-        // { path: "student-qa", component: Student_Qa },
-        // { path: "student-referral", component: Student_Referral },
-        // { path: "student-messages", component: Student_Messages },
-        // { path: "student-tickets", component: Student_Tickets },
+        //{ path: "student-quiz-details", component: Student_Quiz_Details },
+        { path: "student-order-history", component: Student_Order_History },
+        { path: "student-qa", component: Student_Qa },
+        { path: "student-referral", component: Student_Referral },
+        { path: "student-messages", component: Student_Messages },
+        { path: "student-tickets", component: Student_Tickets },
         // { path: "student-settings", component: Student_Settings },
         // { path: "student-change-password", component: Student_Change_Password },
         // { path: "student-social-profile", component: Student_Social_Profile },

@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "name": "Mark Villiams",
+      "image": "user12.jpg",
+      "message": "Have you called them?",
+      "time": "10:20 PM",
+      "status": "online",
+      "pinned": true,
+      "read": true,
+      "typing": false,
+      "showMenu": false
+    },
+    {
+      "id": 2,
+      "name": "Elizabeth Sosa",
+      "image": "user5.jpg",
+      "message": "Typing...",
+      "time": "Yesterday",
+      "status": "offline",
+      "pinned": true,
+      "read": false,
+      "typing": true,
+      "showMenu": false
+    },
+    {
+      "id": 3,
+      "name": "Michael Howard",
+      "image": "user3.jpg",
+      "message": "Thank you",
+      "time": "10:20 PM",
+      "status": "online",
+      "pinned": true,
+      "read": true,
+      "typing": false,
+      "showMenu": false
+    }
+  ]
+  

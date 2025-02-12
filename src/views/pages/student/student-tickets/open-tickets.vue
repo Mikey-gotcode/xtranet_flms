@@ -1,103 +1,64 @@
 <template>
-  <div class="table-responsive custom-table">
-    <!-- Referred Users-->
-    <table class="table table-nowrap mb-0">
-      <thead>
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-gray-200 bg-white text-left text-sm">
+      <thead class="bg-gray-100">
         <tr>
-          <th>Ticket ID</th>
-          <th>Date</th>
-          <th>Subject</th>
-          <th>Priority</th>
-          <th>Category</th>
-          <th>Status</th>
+          <th class="border border-gray-300 px-4 py-2">Ticket ID</th>
+          <th class="border border-gray-300 px-4 py-2">Date</th>
+          <th class="border border-gray-300 px-4 py-2">Subject</th>
+          <th class="border border-gray-300 px-4 py-2">Priority</th>
+          <th class="border border-gray-300 px-4 py-2">Category</th>
+          <th class="border border-gray-300 px-4 py-2">Status</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Ticket#001</td>
-          <td>March 12, 2024</td>
-          <td>Need a freelancer software</td>
-          <td>
-            <span class="resut-badge badge-light-success">Low</span>
+        <tr v-for="ticket in tickets" :key="ticket.id" class="border-b hover:bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2">{{ ticket.id }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ ticket.date }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ ticket.subject }}</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <span :class="priorityClass(ticket.priority)" class="px-2 py-1 rounded text-white text-sm">
+              {{ ticket.priority }}
+            </span>
           </td>
-          <td>Mailing Issues</td>
-          <td>
-            <span class="status-badge badge-soft-success">Opened</span>
-          </td>
-        </tr>
-        <tr>
-          <td>Ticket#003</td>
-          <td>March 27, 2024</td>
-          <td>Account Activation mail not received</td>
-          <td>
-            <span class="resut-badge badge-light-danger">High</span>
-          </td>
-          <td>Mailing Issues</td>
-          <td>
-            <span class="status-badge badge-soft-danger">Closed</span>
-          </td>
-        </tr>
-        <tr>
-          <td>Ticket#004</td>
-          <td>April 04, 2024</td>
-          <td>Enabling SSH service</td>
-          <td>
-            <span class="resut-badge badge-light-warning">Medium</span>
-          </td>
-          <td>Installation Error</td>
-          <td>
-            <span class="status-badge badge-soft-success">Opened</span>
-          </td>
-        </tr>
-        <tr>
-          <td>Ticket#007</td>
-          <td>June 03, 2024</td>
-          <td>Slow speed while Course Download</td>
-          <td>
-            <span class="resut-badge badge-light-danger">High</span>
-          </td>
-          <td>Server Issues</td>
-          <td>
-            <span class="status-badge badge-soft-success">Opened</span>
-          </td>
-        </tr>
-        <tr>
-          <td>Ticket#008</td>
-          <td>June 13, 2024</td>
-          <td>Unable to access the course</td>
-          <td>
-            <span class="resut-badge badge-light-warning">Medium</span>
-          </td>
-          <td>Demo Problem</td>
-          <td>
-            <span class="status-badge badge-soft-success">Opened</span>
-          </td>
-        </tr>
-        <tr>
-          <td>Ticket#009</td>
-          <td>July 15, 2024</td>
-          <td>Assignment Upload Error files</td>
-          <td>
-            <span class="resut-badge badge-light-success">Low</span>
-          </td>
-          <td>File Error</td>
-          <td>
-            <span class="status-badge badge-soft-success">Opened</span>
-          </td>
-        </tr>
-        <tr>
-          <td>Ticket#0010</td>
-          <td>July 23, 2024</td>
-          <td>Account Recovery Assistance Need</td>
-          <td>
-            <span class="resut-badge badge-light-danger">High</span>
-          </td>
-          <td>Recovery Issues</td>
-          <td>
-            <span class="status-badge badge-soft-success">Opened</span>
+          <td class="border border-gray-300 px-4 py-2">{{ ticket.category }}</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <span :class="statusClass(ticket.status)" class="px-2 py-1 rounded text-white text-sm">
+              {{ ticket.status }}
+            </span>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+const tickets = ref([
+  { id: "Ticket#001", date: "March 12, 2024", subject: "Need a freelancer software", priority: "Low", category: "Mailing Issues", status: "Opened" },
+  { id: "Ticket#003", date: "March 27, 2024", subject: "Account Activation mail not received", priority: "High", category: "Mailing Issues", status: "Closed" },
+  { id: "Ticket#004", date: "April 04, 2024", subject: "Enabling SSH service", priority: "Medium", category: "Installation Error", status: "Opened" },
+  { id: "Ticket#007", date: "June 03, 2024", subject: "Slow speed while Course Download", priority: "High", category: "Server Issues", status: "Opened" },
+  { id: "Ticket#008", date: "June 13, 2024", subject: "Unable to access the course", priority: "Medium", category: "Demo Problem", status: "Opened" },
+  { id: "Ticket#009", date: "July 15, 2024", subject: "Assignment Upload Error files", priority: "Low", category: "File Error", status: "Opened" },
+  { id: "Ticket#010", date: "July 23, 2024", subject: "Account Recovery Assistance Need", priority: "High", category: "Recovery Issues", status: "Opened" },
+]);
+
+const priorityClass = (priority) => {
+  return {
+    Low: "bg-green-500",
+    Medium: "bg-yellow-500",
+    High: "bg-red-500",
+  }[priority] || "bg-gray-500";
+};
+
+const statusClass = (status) => {
+  return {
+    Opened: "bg-green-500",
+    Inprogress: "bg-yellow-500",
+    Closed: "bg-red-500",
+  }[status] || "bg-gray-500";
+};
+</script>
